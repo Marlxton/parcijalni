@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import UserForm from "./components/UserForm";
+import GithubUser from "./components/GithubUser";
+
+
 
 function App() {
+  const [user, setUser] = useState(null);
+  const [loadingUser, setLoadingUser] = useState(false);
+  const [userNotFound, setUserNotFound] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Github User Finder</h1>
+      <UserForm
+        setUser={setUser}
+        setLoadingUser={setLoadingUser}
+        setUserNotFound={setUserNotFound}
+      />
+
+      {user && <GithubUser user={user} setUser={setUser} />}
+
+      {loadingUser && <p>Loading User</p>}
+      {userNotFound && <p>User Not Found</p>}
+    </>
   );
 }
 
