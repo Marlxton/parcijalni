@@ -25,3 +25,19 @@ form {
   margin-bottom: 10px;
 }
 
+button {
+  margin-left: 5px;
+}
+
+button:hover {
+  background-color: yellow;
+}
+
+.user-details {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  text-decoration: underline;
+}
